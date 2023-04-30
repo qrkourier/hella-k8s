@@ -8,7 +8,7 @@ defaultNamespace: velero
 # All resources will be assigned to this namespace and if any cluster scoped
 # resource exists the deployment will fail.
 # Default: ""
-namespace: default
+# namespace: default
 
 # Optional map of labels, that are set at the bundle and can be used in a 
 # dependsOn.selector
