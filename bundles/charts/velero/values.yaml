@@ -261,7 +261,7 @@ configuration:
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
     config: #{}
-    #  region:
+      region: storj
       s3ForcePathStyle: "true"  # required for MinIO
       s3Url: https://gateway.storjshare.io
     #  kmsKeyId:
