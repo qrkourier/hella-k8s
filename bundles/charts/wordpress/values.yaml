@@ -9,4 +9,5 @@ mariadb:
     rootPassword: nopasswd
 service:
   type: ClusterIP
+wordpressUsername: admin
 wordpressPassword: nopasswd
