@@ -241,7 +241,7 @@ configuration:
   - name: default
     # provider is the name for the backup storage location provider. If omitted
     # `configuration.provider` will be used instead.
-    provider:
+    provider: velero.io/aws
     # bucket is the name of the bucket to store backups in. Required.
     bucket: hellacluster
     # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
@@ -262,7 +262,7 @@ configuration:
     # for details of required/optional fields for your provider.
     config: #{}
     #  region:
-    #  s3ForcePathStyle:
+      s3ForcePathStyle: "true"  # required for MinIO
       s3Url: https://gateway.storjshare.io
     #  kmsKeyId:
     #  resourceGroup:
