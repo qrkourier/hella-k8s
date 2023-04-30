@@ -1,0 +1,12 @@
+ingress:
+  enabled: true
+  hostname: blog.192.168.1.202.xip.bingnet.cloud
+  ingressClassName: nginx
+  tls: true
+mariadb:
+  auth:
+    password: nopasswd
+    rootPassword: nopasswd
+service:
+  type: ClusterIP
+wordpressPassword: nopasswd

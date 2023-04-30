@@ -1,0 +1,12 @@
+apiVersion: fleet.cattle.io/v1alpha1
+kind: GitRepo
+metadata:
+  name: hella-k8s
+  namespace: fleet-local
+spec:
+  branch: main
+  insecureSkipTLSVerify: false
+  paths:
+    - bundles
+  repo: https://github.com/qrkourier/hella-k8s
+  targets: []
