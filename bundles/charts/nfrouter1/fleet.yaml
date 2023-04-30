@@ -50,9 +50,10 @@ helm:
       service:
         enabled: true
         type: ClusterIP
-    transport:
-      service:
-        enabled: false
+    linkListeners:
+      transport:
+        service:
+          enabled: false
     persistence:
         storageClass: singleton-hdd
     ctrl:
