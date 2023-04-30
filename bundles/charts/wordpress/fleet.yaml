@@ -66,7 +66,7 @@ helm:
   #     "${ .ClusterLabels.ENV }": ${ .ClusterValues.someValue | upper | quote }
   # # Path to any values files that need to be passed to helm during install
   valuesFiles:
-    - wordpress.yaml
+    - values.yaml
   #   - values2.yaml
   # # Allow to use values files from configmaps or secrets defined in the downstream clusters
   # valuesFrom:
