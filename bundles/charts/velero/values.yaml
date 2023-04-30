@@ -490,21 +490,25 @@ nodeAgent:
 
 # Backup schedules to create.
 # Eg:
-# schedules:
-#   mybackup:
-#     disabled: false
-#     labels:
-#       myenv: foo
-#     annotations:
-#       myenv: foo
-#     schedule: "0 0 * * *"
-#     useOwnerReferencesInBackup: false
-#     template:
-#       ttl: "240h"
-#       storageLocation: default
-#       includedNamespaces:
-#       - foo
-schedules: {}
+schedules:
+  hellacluster-daily:
+    disabled: false
+    schedule: '@daily'
+    template:
+      storageLocation: default
+      csiSnapshotTimeout: 0s
+      hooks: {}
+      includedNamespaces:
+        - '*'
+      itemOperationTimeout: 0s
+      metadata: {}
+      ttl: 0s
+    useOwnerReferencesInBackup: false
+    # labels:
+    #   myenv: foo
+    # annotations:
+    #   myenv: foo
+# schedules: {}
 
 # Velero ConfigMaps.
 # Eg:
