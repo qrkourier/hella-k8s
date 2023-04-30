@@ -1,6 +1,6 @@
 ingress:
   enabled: true
-  hostname: blog.192.168.1.202.xip.bingnet.cloud
+  hostname: blog.192.168.2.204.xip.bingnet.cloud
   ingressClassName: nginx
   tls: true
 mariadb:
