@@ -11,3 +11,8 @@ service:
   type: ClusterIP
 wordpressUsername: admin
 wordpressPassword: nopasswd
+resources:
+  limits: {}
+  requests:
+    memory: 512Mi
+    cpu: 100m
