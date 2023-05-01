@@ -52,12 +52,12 @@ dnsPolicy: ClusterFirst
 # Init containers to add to the Velero deployment's pod spec. At least one plugin provider image is required.
 # If the value is a string then it is evaluated as a template.
 initContainers:
-  - name: velero-plugin-for-csi
-    image: velero/velero-plugin-for-csi:v0.5.0
-    imagePullPolicy: IfNotPresent
-    volumeMounts:
-      - mountPath: /target
-        name: plugins
+  # - name: velero-plugin-for-csi
+  #   image: velero/velero-plugin-for-csi:v0.5.0
+  #   imagePullPolicy: IfNotPresent
+  #   volumeMounts:
+  #     - mountPath: /target
+  #       name: plugins
   - name: velero-plugin-for-aws
     image: velero/velero-plugin-for-aws:v1.7.0
     imagePullPolicy: IfNotPresent
@@ -151,8 +151,8 @@ metrics:
     prometheus.io/path: "/metrics"
 
   serviceMonitor:
+    enabled: true
     autodetect: true
-    enabled: false
     annotations: {}
     additionalLabels: {}
     # ServiceMonitor namespace. Default to Velero namespace.
@@ -162,8 +162,8 @@ metrics:
     # ServiceMonitor connection tlsConfig. Defaults to {}.
     # tlsConfig: {}
   nodeAgentPodMonitor:
+    enabled: true
     autodetect: true
-    enabled: false
     annotations: {}
     additionalLabels: {}
     # ServiceMonitor namespace. Default to Velero namespace.
@@ -352,7 +352,7 @@ configuration:
   extraEnvVars: {}
 
   # Set true for backup all pod volumes without having to apply annotation on the pod when used file system backup Default: false.
-  defaultVolumesToFsBackup:
+  defaultVolumesToFsBackup: true
 
   # How often repository maintain is run for repositories by default.
   defaultRepoMaintainFrequency:
@@ -418,10 +418,10 @@ credentials:
 # Whether to create backupstoragelocation crd, if false => do not create a default backup location
 backupsEnabled: true
 # Whether to create volumesnapshotlocation crd, if false => disable snapshot feature
-snapshotsEnabled: true
+snapshotsEnabled: false
 
 # Whether to deploy the node-agent daemonset.
-deployNodeAgent: false
+deployNodeAgent: true
 
 nodeAgent:
   podVolumePath: /var/lib/kubelet/pods
