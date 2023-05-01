@@ -421,7 +421,7 @@ backupsEnabled: true
 snapshotsEnabled: false
 
 # Whether to deploy the node-agent daemonset.
-deployNodeAgent: true
+deployNodeAgent: false
 
 nodeAgent:
   podVolumePath: /var/lib/kubelet/pods
