@@ -52,12 +52,12 @@ dnsPolicy: ClusterFirst
 # Init containers to add to the Velero deployment's pod spec. At least one plugin provider image is required.
 # If the value is a string then it is evaluated as a template.
 initContainers:
-  # - name: velero-plugin-for-csi
-  #   image: velero/velero-plugin-for-csi:v0.5.0
-  #   imagePullPolicy: IfNotPresent
-  #   volumeMounts:
-  #     - mountPath: /target
-  #       name: plugins
+  - name: velero-plugin-for-csi
+    image: velero/velero-plugin-for-csi:v0.5.0
+    imagePullPolicy: IfNotPresent
+    volumeMounts:
+      - mountPath: /target
+        name: plugins
   - name: velero-plugin-for-aws
     image: velero/velero-plugin-for-aws:v1.7.0
     imagePullPolicy: IfNotPresent
@@ -278,13 +278,13 @@ configuration:
     #  insecureSkipTLSVerify:
 
   # Parameters for the VolumeSnapshotLocation(s). Configure multiple by adding other element(s) to the volumeSnapshotLocation slice.
-  # See https://velero.io/docs/v1.6/api-types/volumesnapshotlocation/
+  # See https://velero.io/docs/v1.11/api-types/volumesnapshotlocation/
   volumeSnapshotLocation:
     # name is the name of the volume snapshot location where snapshots are being taken. Required.
-  - name:
+  - name: default
     # provider is the name for the volume snapshot provider. If omitted
     # `configuration.provider` will be used instead.
-    provider:
+    provider: csi
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
     config: {}
@@ -343,8 +343,8 @@ configuration:
   # How long to wait on persistent volumes and namespaces to terminate during a restore before timing out. Default: 10m
   terminatingResourceTimeout:
   # Comma separated list of velero feature flags. default: empty
-  # features: EnableCSI
-  features:
+  features: EnableCSI
+  # features:
   # `velero server` default: velero
   namespace:
 
@@ -418,7 +418,7 @@ credentials:
 # Whether to create backupstoragelocation crd, if false => do not create a default backup location
 backupsEnabled: true
 # Whether to create volumesnapshotlocation crd, if false => disable snapshot feature
-snapshotsEnabled: false
+snapshotsEnabled: true
 
 # Whether to deploy the node-agent daemonset.
 deployNodeAgent: false
