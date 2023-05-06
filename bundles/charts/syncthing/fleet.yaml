@@ -94,43 +94,43 @@ helm:
 # Default: false
 paused: false
 
-rolloutStrategy:
-    # A number or percentage of clusters that can be unavailable during an update
-    # of a bundle. This follows the same basic approach as a deployment rollout
-    # strategy. Once the number of clusters meets unavailable state update will be
-    # paused. Default value is 100% which doesn't take effect on update.
-    # default: 100%
-    maxUnavailable: 15%
-    # A number or percentage of cluster partitions that can be unavailable during
-    # an update of a bundle.
-    # default: 0
-    maxUnavailablePartitions: 20%
-    # A number of percentage of how to automatically partition clusters if not
-    # specific partitioning strategy is configured.
-    # default: 25%
-    autoPartitionSize: 10%
-    # A list of definitions of partitions.  If any target clusters do not match
-    # the configuration they are added to partitions at the end following the
-    # autoPartitionSize.
-    partitions:
-      # A user friend name given to the partition used for Display (optional).
-      # default: ""
-    - name: canary
-      # A number or percentage of clusters that can be unavailable in this
-      # partition before this partition is treated as done.
-      # default: 10%
-      maxUnavailable: 10%
-      # Selector matching cluster labels to include in this partition
-      clusterSelector:
-        matchLabels:
-          env: prod
-      # A cluster group name to include in this partition
-      clusterGroup: agroup
-      # Selector matching cluster group labels to include in this partition
-      clusterGroupSelector: 
-        clusterSelector:
-          matchLabels:
-            env: prod
+# rolloutStrategy:
+#     # A number or percentage of clusters that can be unavailable during an update
+#     # of a bundle. This follows the same basic approach as a deployment rollout
+#     # strategy. Once the number of clusters meets unavailable state update will be
+#     # paused. Default value is 100% which doesn't take effect on update.
+#     # default: 100%
+#     maxUnavailable: 15%
+#     # A number or percentage of cluster partitions that can be unavailable during
+#     # an update of a bundle.
+#     # default: 0
+#     maxUnavailablePartitions: 20%
+#     # A number of percentage of how to automatically partition clusters if not
+#     # specific partitioning strategy is configured.
+#     # default: 25%
+#     autoPartitionSize: 10%
+#     # A list of definitions of partitions.  If any target clusters do not match
+#     # the configuration they are added to partitions at the end following the
+#     # autoPartitionSize.
+#     partitions:
+#       # A user friend name given to the partition used for Display (optional).
+#       # default: ""
+#     - name: canary
+#       # A number or percentage of clusters that can be unavailable in this
+#       # partition before this partition is treated as done.
+#       # default: 10%
+#       maxUnavailable: 10%
+#       # Selector matching cluster labels to include in this partition
+#       clusterSelector:
+#         matchLabels:
+#           env: prod
+#       # A cluster group name to include in this partition
+#       clusterGroup: agroup
+#       # Selector matching cluster group labels to include in this partition
+#       clusterGroupSelector: 
+#         clusterSelector:
+#           matchLabels:
+#             env: prod
 
 # # Target customization are used to determine how resources should be modified per target
 # # Targets are evaluated in order and the first one to match a cluster is used for that cluster.
