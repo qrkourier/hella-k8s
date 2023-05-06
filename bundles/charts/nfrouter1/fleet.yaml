@@ -55,7 +55,8 @@ helm:
         service:
           enabled: false
     persistence:
-        storageClass: singleton-hdd
+      enabled: false  # use emptyDir
+        # storageClass: singleton-hdd
     ctrl:
       endpoint: 8e097be0-6ea1-4e65-a3f4-7cdf9ac7eaf8.production.netfoundry.io:80
   # All labels on Rancher clusters are available using global.fleet.clusterLabels.LABELNAME
